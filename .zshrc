@@ -68,7 +68,7 @@ pve(){
   source /home/barci/penvs/$1/bin/activate
 }
 nvim(){
-  alacritty --command nvim $1 &
+  nohup alacritty --command nvim $1  > /dev/null 2>&1 & disown
 }
 
 alias gs='git status'
