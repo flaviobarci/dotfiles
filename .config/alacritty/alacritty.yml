@@ -1,0 +1,36 @@
+window:
+  margin:
+    x: 2
+    y: 10
+  padding:
+    x: 2
+    y: 2
+
+font:
+  normal:
+    family: 'SF Mono Powerline'
+  size: 12
+  offset:
+    y: 1
+colors:
+  primary:
+    background: '#0C1021'
+    foreground: '#DBDFDC'
+  normal:
+    black:      '#0F284D'
+    red:        '#f54396'
+    green:      '#959D49'
+    yellow:     '#FF6800'
+    blue:       '#5F819D'
+    magenta:    '#85678F'
+    cyan:       '#30f3c9'
+    white:      '#192D41'
+  bright:
+    black:      '#0F284D'
+    red:        '#f54396'
+    green:      '#959D49'
+    yellow:     '#F0C674'
+    blue:       '#065500'
+    magenta:    '#B294BB'
+    cyan:       '#006FFB'
+    white:      '#DBDFBC'
