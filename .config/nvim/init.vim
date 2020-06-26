@@ -43,7 +43,6 @@ if executable('rg')
   set grepprg=rg\ --vimgrep
 endif
 
-
 nnoremap <Space> <NOP>
 let mapleader = "\<Space>"
 nnoremap <leader>f :Files<CR>
