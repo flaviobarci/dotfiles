@@ -58,4 +58,9 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
+    use{
+        'christoomey/vim-tmux-navigator',
+        lazy = false
+    }
+
 end)
