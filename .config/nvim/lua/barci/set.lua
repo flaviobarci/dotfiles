@@ -30,7 +30,7 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-vim.opt.listchars = { space = '.', tab = '>~', trail = '~', eol = '↵', nbsp = '␣' }
+vim.opt.listchars = { space = '·', tab = '>~', trail = '~', eol = '↵', nbsp = '␣' }
 vim.opt.list = true
 
 vim.opt.cursorline = true
