@@ -23,11 +23,10 @@ require("lazy").setup({
             { 'neovim/nvim-lspconfig' },             -- Required
             { 'williamboman/mason.nvim' },           -- Optional
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
+            { 'hrsh7th/nvim-cmp' },                  -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+            { 'L3MON4D3/LuaSnip' },                  -- Required
         }
 
     },
@@ -36,13 +35,15 @@ require("lazy").setup({
         name = 'rose-pine'
     },
     {
+        'rebelot/kanagawa.nvim'
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
             local configs = require("nvim-treesitter.configs")
-
             configs.setup({
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "html" },
+                ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "html", "c_sharp" },
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },
@@ -53,7 +54,21 @@ require("lazy").setup({
         'github/copilot.vim'
     },
     {
-    'nvim-telescope/telescope.nvim'
-        ,dependencies = { 'nvim-lua/plenary.nvim' }
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+    {
+        'Hoffs/omnisharp-extended-lsp.nvim'
+    },
+    {
+        'tpope/vim-fugitive'
+    },
+    {
+        "j-hui/fidget.nvim",
+        tag = "legacy",
+        event = "LspAttach",
+        opts = {
+            -- options
+        },
     }
 })
