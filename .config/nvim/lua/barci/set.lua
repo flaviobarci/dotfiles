@@ -35,6 +35,7 @@ vim.opt.list = true
 
 vim.opt.cursorline = true
 
+vim.opt.ignorecase = true
 
 vim.g.mapleader = " "
 
