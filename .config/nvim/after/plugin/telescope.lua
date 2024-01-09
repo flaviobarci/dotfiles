@@ -6,15 +6,16 @@ vim.keymap.set('n', '<leader>fs', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
 
+vim.cmd('highlight TelescopeBorder guibg=none')
+vim.cmd('highlight TelescopeTitle guibg=none')
 
 require('telescope').setup({
-  defaults = {
-    layout_config = {
-      horizontal = { width = 0.99, height = 0.99 }
-      -- other layout configuration here
+    defaults = {
+        layout_config = {
+            horizontal = { width = 0.99, height = 0.99 }
+            -- other layout configuration here
+        },
+        -- other defaults configuration here
     },
-    -- other defaults configuration here
-  },
-  -- other configuration values here
+    -- other configuration values here
 })
-

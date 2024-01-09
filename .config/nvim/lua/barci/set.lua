@@ -30,7 +30,8 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-vim.opt.listchars = { space = '·', tab = '>~', trail = '~', eol = '↵', nbsp = '␣' }
+vim.opt.listchars = { space = ' ', tab = '>~', trail = '~', eol = '↵', nbsp = '␣' }
+-- ·
 vim.opt.list = true
 
 vim.opt.cursorline = true
@@ -39,3 +40,10 @@ vim.opt.ignorecase = true
 
 vim.g.mapleader = " "
 
+-- highlight yanked text for 200ms using the "Visual" highlight group
+vim.cmd [[
+augroup highlight_yank
+autocmd!
+au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=200})
+augroup END
+]]

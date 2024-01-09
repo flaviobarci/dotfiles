@@ -8,8 +8,9 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
     vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
---    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set('n', 'gr', function() require('telescope.builtin').lsp_references() end, { noremap = true, silent = true })
+    --    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set('n', 'gr', function() require('telescope.builtin').lsp_references() end,
+        { noremap = true, silent = true })
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.lsp.buf.open_float() end, opts)
@@ -21,18 +22,25 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>kd", function() vim.lsp.buf.format() end, opts)
 end)
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
-
-local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
-
-local config = {
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    ensure_installed = {},
     handlers = {
-        ["textDocument/definition"] = require('omnisharp_extended').handler
+        lsp.default_setup,
     },
-    cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
-}
+})
 
-require('lspconfig').omnisharp.setup(config)
+--local omnisharp_bin = "/usr/local/bin/omnisharp-roslyn/OmniSharp"
+--
+--local config = {
+--    handlers = {
+--        ["textDocument/definition"] = require('omnisharp_extended').handler
+--    },
+--    cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
+--}
+--
+--require('lspconfig').omnisharp.setup(config)
+
 
 lsp.setup()
