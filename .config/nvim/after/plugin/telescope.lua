@@ -9,13 +9,4 @@ end)
 vim.cmd('highlight TelescopeBorder guibg=none')
 vim.cmd('highlight TelescopeTitle guibg=none')
 
-require('telescope').setup({
-    defaults = {
-        layout_config = {
-            horizontal = { width = 0.99, height = 0.99 }
-            -- other layout configuration here
-        },
-        -- other defaults configuration here
-    },
-    -- other configuration values here
-})
+require('telescope').setup()
