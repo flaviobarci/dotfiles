@@ -50,8 +50,14 @@ require("lazy").setup({
             })
         end
     },
+    -- {
+    --     'github/copilot.vim'
+    -- },
     {
-        'github/copilot.vim'
+        "supermaven-inc/supermaven-nvim",
+        config = function()
+            require("supermaven-nvim").setup({})
+        end,
     },
     {
         'nvim-telescope/telescope.nvim',
@@ -75,5 +81,18 @@ require("lazy").setup({
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" }
+    },
+    {
+        "folke/zen-mode.nvim",
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
+    },
+    {
+        "tpope/vim-dadbod",
+        "kristijanhusak/vim-dadbod-ui",
+        "kristijanhusak/vim-dadbod-completion"
     }
 })

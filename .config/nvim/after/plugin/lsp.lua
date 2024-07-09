@@ -17,15 +17,26 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "]d", function() vim.lsp.buf.goto_prev() end, opts)
     vim.keymap.set("n", "<leader><CR>", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    --vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
     vim.keymap.set("n", "<leader>kd", function() vim.lsp.buf.format() end, opts)
+    vim.keymap.set("n", "<leader>rg", function() vim.lsp.buf.organize_imports() end, opts)
+    vim.keymap.set("n", "<leader>i",  function() vim.diagnostic.open_float() end, opts)
+
 end)
 
 require('mason').setup({})
+
 require('mason-lspconfig').setup({
     ensure_installed = {},
     handlers = {
         lsp.default_setup,
+        omnisharp = function()
+            require('lspconfig').omnisharp.setup({
+                handlers = {
+                    ["textDocument/definition"] = require('omnisharp_extended').handler,
+                }
+            })
+        end
     },
 })
 
